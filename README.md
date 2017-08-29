@@ -13,3 +13,7 @@
 修改`config.py`：注释第六行 --> 第五行开头#去掉，修改`user`、`passwd`、'database'
 
 ### 其他需求请加[qq群](https://jq.qq.com/?_wv=1027&k=5G8OtPx)
+
+------
+示例网站：http://t.v4s0.us
+
