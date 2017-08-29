@@ -1,0 +1,78 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">主页</a> <span class="divider">/</span>
+            </li>
+            <li class="active">
+                <a href="/show/{{id}}">{{id}}</a>
+            </li>
+        </ul>
+        {% if isparse==1 %}
+			<div class="tabbable" id="tabs-144977">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-132376" data-toggle="tab">视频</a>
+					</li>
+					<li>
+						<a href="#panel-670901" data-toggle="tab">图片</a>
+					</li>
+				</ul>
+                <h4>Tumblr博客:{{id}}，访问<a href="http://{{id}}.tumblr.com" target="_blank">博客主页</a></h4>
+                <div>
+                  <ul class="list-inline">
+                    <li><a href="/showmore?id={{id}}&type=video">视频</a></li><span class="divider">/</span>
+                    <li><a href="/showmore?id={{id}}&type=picture">图片</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="list-inline">
+                    <li><a href="/download?id={{id}}&type=video">导出视频</a></li><span class="divider">/</span>
+                    <li><a href="/download?id={{id}}&type=picture">导出图片</a></li>
+                  </ul>
+                </div>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-132376">
+                    <div class="row">
+                    {%for video in videos%}
+                    <div class="col-sm-6 col-md-3">
+                          <div class="thumbnail">
+                             <img src="{{video.poster}}" height="80" width="%100" class="img-responsive">
+                          </div>
+                          <div class="caption">
+                             <button id="play" class="btn btn-success" style="display: line;">播放<input type="hidden" class="videoUrl" value="{{video.urls}}"></button>
+                            <a class="btn" href="{{video.urls}}" download>下载</a>
+                          </div>
+                    </div>
+                    {%endfor%}
+                    </div>
+					</div>
+					<div class="tab-pane" id="panel-670901">
+                    <div class="row" id="layer-photos-demo">
+                    {%for picture in pictures%}
+                    <div class="col-sm-6 col-md-3">
+                          <div class="thumbnail">
+                             <img src="{{picture.urls}}" height="80" width="%100" class="img-responsive">
+                          </div>
+                          <div class="caption">
+                            <p><a class="btn" href="{{picture.urls}}" download>下载</a></p>
+                          </div>
+                    </div>
+                    {%endfor%}
+                    </div>
+					</div>
+				</div>
+
+			</div>
+        {%else%}
+            <h3>数据库中没有内容哦！请稍等15秒再刷新本页！</h3>
+        {%endif%}
+		</div>
+	</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,58 @@
+{% import 'showmore_macros.html' as macros %}
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">主页</a> <span class="divider">/</span>
+            </li>
+            <li>
+                <a href="/show/{{id}}">{{id}}</a> <span class="divider">/</span>
+            </li>
+            <li class="active">
+                <a href="/showmore?id={{id}}&type={{type}}">{%if type=="video"%}视频{%else%}图片{%endif%}</a> <span class="divider">/</span>
+            </li>
+        </ul>
+                    <div class="row">
+                    {%if type=='video'%}
+                        <a href="/showmore?id={{id}}&type=picture">图片</a>
+                        {%for item in items%}
+                        <div class="col-sm-6 col-md-3">
+                              <div class="thumbnail">
+                                 <img src="{{item.poster}}" height="80" width="%100" class="img-responsive">
+                              </div>
+                              <div class="caption">
+                                 <button id="play" class="btn btn-success" style="display: line;">播放<input type="hidden" class="videoUrl" value="{{item.urls}}"></button>
+                                <a class="btn" href="{{item.urls}}" download>下载</a>
+                              </div>
+                        </div>
+                        {%endfor%}
+                    {%else%}
+                        <a href="/showmore?id={{id}}&type=video">视频</a>
+                        <div class="row" id="layer-photos-demo">
+                        {%for picture in items%}
+                        <div class="col-sm-6 col-md-3">
+                              <div class="thumbnail">
+                                 <img src="{{picture.urls}}" height="80" width="%100" class="img-responsive">
+                              </div>
+                              <div class="caption">
+                                <p><a class="btn" href="{{picture.urls}}" download>下载</a></p>
+                              </div>
+                        </div>
+                        {%endfor%}
+                        </div>
+                    {%endif%}
+                    </div>
+            {% if pagination %}
+            <div class="pagination">
+                {{ macros.pagination_widget(pagination, '.showmore',id,type) }}
+            </div>
+            {% endif %}
+		</div>
+	</div>
+</div>
+{%endblock%}
+

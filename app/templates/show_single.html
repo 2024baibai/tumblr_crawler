@@ -1,0 +1,61 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">主页</a> <span class="divider">/</span>
+            </li>
+            <li class="active">
+                <a href="/show/{{id}}">{{id}}</a>
+            </li>
+        </ul>
+			<div class="tabbable" id="tabs-144977">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-132376" data-toggle="tab">视频</a>
+					</li>
+					<li>
+						<a href="#panel-670901" data-toggle="tab">图片</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-132376">
+                    <div class="row">
+                    {%if isvideo!=0 %}
+                    <div class="col-sm-6 col-md-3">
+                      <div class="thumbnail">
+                         <img src="{{poster}}" height="80" width="%100" class="img-responsive">
+                      </div>
+                      <div class="caption">
+                         <button id="play" class="btn btn-success" style="display: line;">播放<input type="hidden" class="videoUrl" value="{{video}}"></button>
+                        <a class="btn" href="{{video}}" download>下载</a><
+                      </div>
+                    </div>
+                    {%endif%}
+                    </div>
+					</div>
+					<div class="tab-pane" id="panel-670901">
+                    <div class="row">
+                    <div class="row" id="layer-photos-demo">
+                    {%for picture in pictures%}
+                    <div class="col-sm-6 col-md-3">
+                          <div class="thumbnail">
+                             <img src="{{picture.urls}}" height="80" width="%100" class="img-responsive">
+                          </div>
+                          <div class="caption">
+                            <p><a class="btn" href="{{picture.urls}}" download>下载</a></p>
+                          </div>
+                    </div>
+                    {%endfor%}
+                    </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

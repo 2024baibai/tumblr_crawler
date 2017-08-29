@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+            <br><br><br><br><br><br>
+            <img src="/static/logo.png" class="img-responsive center-block"></img>
+            <h3 align="center">汤热啦</h3>
+            <form class="form-inline"  align="center" valign="center" action="/get" method="POST" >
+                <input class="form-control" type="text" name="id" />
+                <button class="btn btn-primary" type="submit">X福利</button>
+            </form>
+            <div align="center">
+                <h4>
+                    最近搜索Tumblr
+                </h4>
+                {%for id in ids%}
+                <span class="label badge-success"><a href="/show/{{id}}">{{id}}</a></span>
+                {%endfor%}
+            </div>
+          <div class="jumbotron" style="max-width: 800px;margin:0 auto;">
+             <div class="container" >
+             <p class="bg-success"><h2><span class="glyphicon glyphicon-film" aria-hidden="true"></span> <a href="http://www.v4s0.us">在线视频</a> <small>无需下载</small></h2></p>
+             <p class="bg-success"><h2><span class="glyphicon glyphicon-text-width" aria-hidden="true"></span> <a href="http://t.v4s0.us">Tumblr导航区</a> <small>Tumblr老司机的天堂~</small></h2></p>
+            </div>
+         </div>
+         <div class="alert alert-warning alert-dismissible" role="alert" style="max-width: 800px;margin:0 auto;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>使用提示：</strong>
+              <p>1、本网站提供Tumblr视频/图片批量解析功能。使用方法：直接输入Tumblr二级域名前缀</p>
+              <p>2、同时支持单个Tumblr视频真实下载链接解析功能。使用方法：直接输入Tumblr视频帖子链接</p>
+              <p>3、站长技术很渣，前端0基础，后端也是渣，如果你有什么建议，加我QQ：tumbzzc@qq.com</p>
+          </div>
+
+		</div>
+	</div>
+</div>
+{%endblock%}
