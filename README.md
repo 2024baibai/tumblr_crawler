@@ -4,7 +4,7 @@
     `wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py`
 3. 安装依赖库：`pip install -r requirement.txt`
 4. 创建数据库：`python rebuildDB.py`
-5. 运行：`python run.py runserver`
+5. 运行：`gunicorn -w4 -b 0.0.0.0:5000 run:app`
 
 然后访问 ip:5000 试试
 如果不能访问，看看防火墙是否开了5000端口？
