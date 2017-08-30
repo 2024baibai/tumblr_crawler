@@ -2,7 +2,7 @@
 1. 首先安装Python。linux自带了python，windows请自行下载python。推荐Centos7/Python2.7
 2. 这时候，pip应该可以用了。如果不行，linux请按下面的命令安装pip：
     `wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py`
-3. 安装依赖库：`pip install -r requirememt.txt`
+3. 安装依赖库：`pip install -r requirement.txt`
 4. 创建数据库：`python rebuildDB.py`
 5. 运行：`python run.py runserver`
 
