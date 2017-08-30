@@ -6,6 +6,9 @@
 4. 创建数据库：`python rebuildDB.py`
 5. 运行：`python run.py runserver`
 
+然后访问 ip:5000 试试
+如果不能访问，看看防火墙是否开了5000端口？
+
 ------
 
 ## 以上都是基本的安装。
