@@ -13,7 +13,7 @@
 
 ## 以上都是基本的安装。
 ### 如果你需要使用MySQL
-修改`config.py`：注释第六行 --> 第五行开头#去掉，修改`user`、`passwd`、'database'
+修改`config.py`：注释第六行 --> 第五行开头#去掉，修改`user`、`passwd`、`database`
 
 ### 配置自启动
 1. 修改`supervisord.conf`，将`directory`修改为脚本根目录
