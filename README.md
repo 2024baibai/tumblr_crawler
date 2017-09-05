@@ -57,5 +57,5 @@ server {
 ### 其他需求请加[qq群](https://jq.qq.com/?_wv=1027&k=5G8OtPx)
 
 ------
-示例网站：http://t.v4s0.us
+示例网站：http://tumblr.kfj.cc/
 
